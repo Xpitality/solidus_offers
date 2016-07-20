@@ -44,8 +44,7 @@ module Spree
 
       def offer_params
         attributes = [:name, :abstract, :description, :meta_title, :meta_description, :meta_keywords,
-                      :slug, :address1, :address2, :city, :zipcode, :country_id, :state_id, :phone,
-                      address: permitted_address_attributes]
+                      :slug, :discount, :active, :taxon_id]
 
         params.require(:offer).permit(attributes)
       end

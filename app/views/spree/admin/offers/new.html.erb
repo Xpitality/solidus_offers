@@ -13,7 +13,6 @@
 </div>
 
 <div data-hook="admin_offer_new_form">
-  <% @offer.country = Spree::Country.default %>
   <%= form_for [:admin, @offer], url: admin_offers_url, method: :post do |f| %>
     <%= render :partial => 'form', :locals => { :f => f } %>
 
