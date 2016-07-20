@@ -30,6 +30,10 @@ module Spree
       def main
         where(main: true)
       end
+
+      def secondary
+        where(main: false)
+      end
     end
 
     def display_image
