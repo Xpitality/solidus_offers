@@ -39,6 +39,14 @@
       <% end %>
     </div>
 
+    <div data-hook="admin_offer_form_main">
+      <%= f.field_container :active do %>
+        <%= f.label :main %>
+        <%= f.check_box :main %>
+        <%= f.error_message_on :main %>
+      <% end %>
+    </div>
+
     <div data-hook="admin_offer_form_abstract">
       <%= f.field_container :abstract do %>
         <%= f.label :abstract %>

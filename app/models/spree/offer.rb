@@ -26,6 +26,10 @@ module Spree
       def active
         where(active: true)
       end
+
+      def main
+        where(main: true)
+      end
     end
 
     def display_image
