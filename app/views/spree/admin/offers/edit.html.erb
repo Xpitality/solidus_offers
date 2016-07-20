@@ -1,0 +1,25 @@
+<% content_for :page_title do %>
+  <%= link_to "#{Spree.t(:editing_offer)} #{@offer.name}", edit_admin_offer_url(@offer) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <li><%= button_link_to Spree.t(:back_to_offers_list), spree.admin_offers_path, :icon => 'arrow-left' %></li>
+  <% if can?(:create, Spree::Offer) %>
+    <li id="new_offer_link">
+      <%= button_link_to Spree.t(:new_offer), new_object_url, { :icon => 'plus', :id => 'admin_new_offer' } %>
+    </li>
+  <% end %>
+<% end %>
+
+<%= render partial: 'spree/admin/offers/offer_tabs', locals: { current: 'Offer Details' } %>
+<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @offer } %>
+
+<div data-hook="admin_offer_new_form">
+  <%= form_for [:admin, @offer], url: admin_offer_url(@offer), method: :put do |f| %>
+    <%= render :partial => 'form', :locals => { :f => f } %>
+
+    <div data-hook="admin_offer_new_form_buttons">
+      <%= render :partial => 'spree/admin/shared/edit_resource_links' %>
+    </div>
+  <% end %>
+</div>

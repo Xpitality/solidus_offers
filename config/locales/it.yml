@@ -1,0 +1,10 @@
+it:
+  spree:
+    admin:
+      tab:
+        offers: Offerte
+    back_to_offers_list: torna ai Offerte
+    editing_offer: Modifica offerta
+    listing_offers: Offerte
+    offer_details: Dettagli Offerta
+    new_offer: Nuovo Offerta

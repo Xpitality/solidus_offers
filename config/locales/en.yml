@@ -1,0 +1,12 @@
+en:
+  spree:
+    admin:
+      tab:
+        offers: Offers
+    api:
+      resource_not_found: Resource not found
+    back_to_offers_list: back to offers
+    editing_offer: Edit offer
+    listing_offers: Offers
+    offer_details: Offer details
+    new_offer: New Offer
