@@ -8,3 +8,7 @@ it:
     listing_offers: Offerte
     offer_details: Dettagli Offerta
     new_offer: Nuovo Offerta
+    discount: Sconto
+    'yes': si
+    'no': no
+    affected: affected

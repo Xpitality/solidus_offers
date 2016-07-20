@@ -11,13 +11,17 @@
 <% end %>
 
 <table class="index" id="listing_offers" data-hook>
-  <colgroup>
-    <col style="width: 85%">
-    <col style="width: 15%">
-  </colgroup>
+  <!--<colgroup>-->
+    <!--<col style="width: 85%">-->
+    <!--<col style="width: 15%">-->
+  <!--</colgroup>-->
   <thead>
   <tr data-hook="admin_offers_index_headers">
     <th><%= sort_link @search,:name, Spree::Offer.model_name.human, {}, {:title => 'offers_name'} %></th>
+    <th><%= sort_link @search,:taxon, Spree::Taxon.model_name.human, {}, {:title => 'offers_taxon'} %></th>
+    <th><%= sort_link @search,:discount, Spree.t(:discount), {}, {:title => 'offers_discount'} %></th>
+    <th><%= sort_link @search,:active, Spree.t(:active), {}, {:title => 'offers_active'} %></th>
+    <th><%= sort_link @search,:affected, Spree.t(:affected), {}, {:title => 'offers_affected'} %></th>
     <th data-hook="admin_offers_index_header_actions" class="actions"></th>
   </tr>
   </thead>
@@ -25,6 +29,10 @@
   <% @offers.each do |offer|%>
     <tr id="<%= spree_dom_id offer %>" data-hook="admin_offers_index_rows" class="<%= cycle('odd', 'even')%>">
       <td class='offer_name'><%=link_to offer.name, edit_admin_offer_url(offer) %></td>
+      <td class='offer_taxon'><%= offer.taxon.permalink %></td>
+      <td class='offer_discount'><%= offer.discount %>%</td>
+      <td class='offer_active'><%= offer.active ? Spree.t(:yes) : Spree.t(:no) %></td>
+      <td class='offer_affected'><%= offer.taxon.products.count %></td>
       <td data-hook="admin_offers_index_row_actions" class="actions">
         <% if can?(:edit, offer) %>
           <%= link_to_edit offer, :no_text => true %>
