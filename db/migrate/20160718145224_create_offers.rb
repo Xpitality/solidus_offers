@@ -9,6 +9,8 @@ class CreateOffers < ActiveRecord::Migration
       t.boolean :active, default: true
       t.integer :discount, default: 0
 
+      t.references :taxon
+
       t.string :meta_title
       t.string :meta_description
       t.string :meta_keywords
