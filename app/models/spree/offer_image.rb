@@ -3,7 +3,7 @@ module Spree
     validate :no_attachment_errors
 
     has_attached_file :attachment,
-                      styles: { mini: '48x48>', small: '100x100>', offer: '942x530>', large: '1170x450>' },
+                      styles: { mini: '48x48>', small: '100x100>', offer: '942x530#', large: '1170x450#' },
                       default_style: :offer,
                       default_url: 'noimage/:style.png',
                       url: '/spree/offers/:id/:style/:basename.:extension',
