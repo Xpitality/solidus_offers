@@ -29,7 +29,7 @@
   <% @offers.each do |offer|%>
     <tr id="<%= spree_dom_id offer %>" data-hook="admin_offers_index_rows" class="<%= cycle('odd', 'even')%>">
       <td class='offer_name'><%=link_to offer.name, edit_admin_offer_url(offer) %></td>
-      <td class='offer_taxon'><%= offer.taxon.permalink %></td>
+      <td class='offer_taxon'><%= @taxons.select{|pair| pair.first == offer.taxon.id }.last.last %></td>
       <td class='offer_discount'><%= offer.discount %>%</td>
       <td class='offer_active'><%= offer.active ? Spree.t(:yes) : Spree.t(:no) %></td>
       <td class='offer_affected'><%= offer.taxon.products.count %></td>

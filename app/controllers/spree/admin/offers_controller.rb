@@ -2,6 +2,8 @@ module Spree
   module Admin
     class OffersController < ResourceController
 
+      before_action :available_taxons, only: [:index, :new, :edit]
+
       def index
         respond_with(@collection) do |format|
           format.html
@@ -47,6 +49,18 @@ module Spree
                       :slug, :discount, :active, :main, :taxon_id]
 
         params.require(:offer).permit(attributes)
+      end
+
+      def available_taxons
+        taxon_hash = {}
+        @taxons = Spree::Taxon.all.order(:taxonomy_id, :lft).map do |t|
+          if t.parent_id.nil?
+            taxon_hash[t.id] = t.name
+          else
+            taxon_hash[t.id] = "#{taxon_hash[t.parent_id]} > #{t.name}"
+          end
+          [t.id, taxon_hash[t.id]]
+        end
       end
     end
   end

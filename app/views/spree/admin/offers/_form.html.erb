@@ -27,7 +27,7 @@
     <div data-hook="admin_offer_form_taxon">
         <span id="taxon">
           <%= f.label :taxon_id, Spree::Taxon.model_name.human %>
-          <%= f.collection_select :taxon_id, Spree::Taxon.all, :id, :name, {}, { :class => 'select2 fullwidth' } %>
+          <%= f.collection_select :taxon_id, @taxons, :first, :last, {}, { :class => 'select2 fullwidth' } %>
         </span>
     </div>
 
