@@ -16,7 +16,7 @@ module Spree
     validates :meta_title, length: { maximum: 255 }
     validates :name, presence: true
     validates :taxon_id, presence: true
-    validates :discount, numericality: { only_integer: true, greater_than: 0, less_than: 100 }
+    validates :discount, numericality: { only_integer: true, greater_than: -1, less_than: 100 }
     validates :slug, length: { minimum: 3 }, uniqueness: { allow_blank: true }
 
     self.whitelisted_ransackable_associations = %w[stores images]
