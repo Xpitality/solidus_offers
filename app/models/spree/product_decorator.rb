@@ -1,7 +1,7 @@
 Spree::Product.class_eval do
 
   def offer_discount
-    Spree::Offer.active.where(taxon_id: self.taxons.pluck(:id)).pluck(:discount)
+    Spree::Offer.active.where(taxon_id: self.taxons.pluck(:id)).pluck(:discount).sort
   end
 
   def discount_price_for(price_options)
