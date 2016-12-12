@@ -38,6 +38,10 @@ module Spree
       def with_discount
         where('discount > 0')
       end
+
+      def without_discount
+        where(discount: 0)
+      end
     end
 
     def display_image
