@@ -34,6 +34,10 @@ module Spree
       def secondary
         where(main: false)
       end
+
+      def with_discount
+        where('discount > 0')
+      end
     end
 
     def display_image
