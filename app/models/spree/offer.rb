@@ -3,11 +3,6 @@ module Spree
     extend FriendlyId
     friendly_id :slug_candidates, use: :history
 
-    # solidus_globalize
-    translates :name, :slug, :description, :abstract, :meta_title, :meta_description, :meta_keywords,
-               fallbacks_for_empty_translations: true
-    include SolidusGlobalize::Translatable
-
     has_many :images, -> { order(:position) }, class_name: 'Spree::OfferImage', as: :viewable, dependent: :destroy
 
     belongs_to :taxon, class_name: 'Spree::Taxon'
