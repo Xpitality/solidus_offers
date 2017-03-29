@@ -3,13 +3,10 @@
     <ul class="tabs" data-hook="admin_product_tabs">
       <%= content_tag :li, :class => ('active' if current == 'Offer Details') do %>
         <%= link_to_with_icon 'edit', Spree.t(:offer_details), spree.edit_admin_offer_url(@offer) %>
-      <% end if can?(:admin, Spree::Offer) %>
+      <% end %>
       <%= content_tag :li, :class => ('active' if current == 'Images') do %>
         <%= link_to_with_icon 'picture-o', Spree.t(:images), spree.admin_offer_images_url(@offer) %>
-      <% end if can?(:admin, Spree::Image) %>
-      <%= content_tag :li, :class => ('active' if current == 'Translations') do %>
-        <%= link_to_with_icon 'globe', Spree.t(:'i18n.translations'), spree.admin_translations_url('offers', @offer.id), title: Spree.t(:'i18n.translations') %>
-      <% end if can?(:admin, Spree::Image) %>
+      <% end %>
     </ul>
   </nav>
 <% end %>
